@@ -6,7 +6,7 @@ Collect Mobile Money payments (MTN MoMo, Airtel Money) from your backend, BFF, o
 
 | | |
 |---|---|
-| **npm package** | `@plydot/pay-client` |
+| **npm package** | `@plydotsystemsltd/pay-client` |
 | **Latest version** | `0.1.0` |
 | **Node** | 18+ (native `fetch`) |
 | **Frameworks** | Framework-agnostic — works in Node, Nest, Express, Angular SSR |
@@ -47,7 +47,7 @@ API reference (Scalar): https://pay.plydot.com/api/docs/
 ## Install
 
 ```bash
-npm install @plydot/pay-client
+npm install @plydotsystemsltd/pay-client
 ```
 
 ---
@@ -58,7 +58,7 @@ npm install @plydot/pay-client
 import {
   PlydotPayClient,
   ThirdPartyCheckoutRequest,
-} from '@plydot/pay-client'
+} from '@plydotsystemsltd/pay-client'
 
 // 1. Create client (reuse as a singleton in your app)
 const pay = PlydotPayClient.builder()
@@ -190,7 +190,7 @@ Pay POSTs JSON to your registered URL when a payment completes.
 **Header:** `X-Plydot-Signature` — HMAC-SHA256 hex of the raw body using your endpoint secret (`whsec_…`).
 
 ```typescript
-import { parseWebhookEvent, WebhookVerifier } from '@plydot/pay-client'
+import { parseWebhookEvent, WebhookVerifier } from '@plydotsystemsltd/pay-client'
 
 function handleWebhook(rawBody: string, signature: string | undefined, secret: string) {
   if (!WebhookVerifier.verify(secret, rawBody, signature)) {
@@ -221,7 +221,7 @@ function handleWebhook(rawBody: string, signature: string | undefined, secret: s
 Failed API calls throw `PlydotPayError`:
 
 ```typescript
-import { PlydotPayError } from '@plydot/pay-client'
+import { PlydotPayError } from '@plydotsystemsltd/pay-client'
 
 try {
   await pay.getCheckout(checkoutId)

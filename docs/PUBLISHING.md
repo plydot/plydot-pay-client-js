@@ -1,4 +1,4 @@
-# Publishing `@plydot/pay-client`
+# Publishing `@plydotsystemsltd/pay-client`
 
 This package is developed in the Plydot Pay monorepo under `plydot-pay-client-js/` and synced to the public GitHub repo [plydot/plydot-pay-client-js](https://github.com/plydot/plydot-pay-client-js).
 
@@ -17,24 +17,24 @@ On every push to `main` (except commits with `[skip publish]` in the message):
 
 | Secret | Purpose |
 |--------|---------|
-| `NPM_TOKEN` | npm automation token with publish access to `@plydot` scope |
+| `NPM_TOKEN` | npm automation token with publish access to `@plydotsystemsltd` scope |
 
 Create the token at https://www.npmjs.com/settings/plydot/tokens with **Publish** permission.
 
 ### Prerequisites
 
-1. npm org `@plydot` exists at https://www.npmjs.com/org/plydot/create
-2. Package `@plydot/pay-client` is created (first publish may require manual `npm publish --access public`)
+1. npm org `@plydotsystemsltd` exists at https://www.npmjs.com/org/plydotsystemsltd
+2. Package `@plydotsystemsltd/pay-client` is created (first publish may require manual `npm publish --access public`)
 3. GitHub repo `plydot/plydot-pay-client-js` exists with `main` branch
-4. `NPM_TOKEN` is an **Automation** token with **Publish** access to the `@plydot` scope (not read-only)
+4. `NPM_TOKEN` is an **Automation** token with **Publish** access to the `@plydotsystemsltd` scope (not read-only)
 
 ### Troubleshooting publish failures
 
 | Error | Fix |
 |-------|-----|
 | `npm whoami` → `401 Unauthorized` | Regenerate token; ensure secret has no trailing newline |
-| `404` on `npm publish` for `@plydot/...` | Create the `@plydot` npm org; add token owner as org member with publish rights |
-| `403 Forbidden` | Token lacks publish permission on `@plydot` scope |
+| `404` on `npm publish` for `@plydotsystemsltd/...` | Ensure the `@plydotsystemsltd` npm org exists; add token owner as org member with publish rights |
+| `403 Forbidden` | Token lacks publish permission on `@plydotsystemsltd` scope |
 | Package already exists at version | CI bumped patch — check `package.json` version vs npm registry |
 
 ---
@@ -53,7 +53,7 @@ Credentials file (optional):
 NPM_TOKEN=npm_…
 ```
 
-The script runs tests, builds, and publishes. Check https://www.npmjs.com/package/@plydot/pay-client after publish.
+The script runs tests, builds, and publishes. Check https://www.npmjs.com/package/@plydotsystemsltd/pay-client after publish.
 
 ---
 
@@ -100,5 +100,5 @@ Link locally:
 ```bash
 npm link
 cd ../your-app
-npm link @plydot/pay-client
+npm link @plydotsystemsltd/pay-client
 ```

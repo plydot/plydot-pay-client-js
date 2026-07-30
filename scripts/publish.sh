@@ -20,4 +20,4 @@ npm test
 npm run build
 npm publish --access public
 
-echo "Published. Check https://www.npmjs.com/package/@plydot/pay-client"
+echo "Published. Check https://www.npmjs.com/package/@plydotsystemsltd/pay-client"

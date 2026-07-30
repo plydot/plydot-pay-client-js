@@ -2,7 +2,7 @@
 
 > **Canonical docs:** [API Specification handbook](../../handbook/plydot-pay-api-spec-v1.0.md) — Guide § Merchant integration.
 
-Complete guide for third-party merchants using `@plydot/pay-client`.
+Complete guide for third-party merchants using `@plydotsystemsltd/pay-client`.
 
 ---
 
@@ -26,7 +26,7 @@ Your integrator backend only needs the **API key** and **webhook secret**.
 ## 2. Install the library
 
 ```bash
-npm install @plydot/pay-client
+npm install @plydotsystemsltd/pay-client
 ```
 
 Works in Node 18+, NestJS, Express, Angular SSR, and any environment with native `fetch`.
@@ -39,7 +39,7 @@ Create one shared instance (Nest provider, Express singleton, etc.):
 
 ```typescript
 // pay.config.ts
-import { PlydotPayClient } from '@plydot/pay-client'
+import { PlydotPayClient } from '@plydotsystemsltd/pay-client'
 
 export const payClient = PlydotPayClient.builder()
   .apiKey(process.env.PLYDOT_PAY_API_KEY!)
@@ -78,7 +78,7 @@ Use `providerId` + `payerId` when creating the checkout. The rail is fixed for t
 When a customer starts checkout on your site, create a Pay checkout with **your product SKU** and the chosen provider/payer:
 
 ```typescript
-import { ThirdPartyCheckoutRequest } from '@plydot/pay-client'
+import { ThirdPartyCheckoutRequest } from '@plydotsystemsltd/pay-client'
 
 async function startCheckout(order: Order, providerId: string, payerId: string) {
   return payClient.createThirdPartyCheckout(
@@ -137,7 +137,7 @@ Register `POST https://your-api.com/webhooks/plydot` in Pay.
 
 ```typescript
 import express from 'express'
-import { parseWebhookEvent, WebhookVerifier } from '@plydot/pay-client'
+import { parseWebhookEvent, WebhookVerifier } from '@plydotsystemsltd/pay-client'
 
 const app = express()
 
@@ -191,7 +191,7 @@ flowchart LR
   end
   subgraph server [Node / Nest / Express]
     Routes[BFF routes]
-    SDK["@plydot/pay-client"]
+    SDK["@plydotsystemsltd/pay-client"]
   end
   subgraph pay [Plydot Pay]
     API["/api/v1/*"]
@@ -215,7 +215,7 @@ PLYDOT_WEBHOOK_SECRET=whsec_…
 ```typescript
 // pay.module.ts
 import { Module } from '@nestjs/common'
-import { PlydotPayClient } from '@plydot/pay-client'
+import { PlydotPayClient } from '@plydotsystemsltd/pay-client'
 
 @Module({
   providers: [
@@ -295,7 +295,7 @@ If using Angular SSR (or a hybrid app), register webhook verification on a **ser
 
 ```typescript
 // server.ts (Express adapter)
-import { WebhookVerifier, parseWebhookEvent } from '@plydot/pay-client'
+import { WebhookVerifier, parseWebhookEvent } from '@plydotsystemsltd/pay-client'
 
 app.post('/webhooks/plydot', express.raw({ type: 'application/json' }), (req, res) => {
   const raw = req.body.toString('utf8')
@@ -432,6 +432,6 @@ await pay.waitForPayoutRequest(payoutId)
 - Swagger UI: https://pay.plydot.com/api/swagger-ui.html
 - Scalar docs: https://pay.plydot.com/api/docs/
 - Playground: https://pay.plydot.com/api/playground/
-- npm package: https://www.npmjs.com/package/@plydot/pay-client
+- npm package: https://www.npmjs.com/package/@plydotsystemsltd/pay-client
 
 For platform/admin APIs (merchant bootstrap, refund approval), use the REST API directly — they are not in this SDK v1.

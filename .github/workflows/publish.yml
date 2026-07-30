@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: "20"
           registry-url: "https://registry.npmjs.org"
-          scope: "@plydot"
+          scope: "@plydotsystemsltd"
           always-auth: true
 
       - name: Install dependencies
