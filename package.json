@@ -1,6 +1,6 @@
 {
   "name": "@plydotsystemsltd/pay-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Official TypeScript/JavaScript SDK for Plydot Pay integrators",
   "license": "Apache-2.0",
   "type": "module",
