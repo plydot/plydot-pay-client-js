@@ -292,3 +292,5 @@ Apache License 2.0 — see [LICENSE](LICENSE).
 <!-- Security scan triggered at 2026-09-02 06:39:39 -->
 
 <!-- Security scan triggered at 2026-09-02 07:05:59 -->
+
+<!-- Security scan triggered at 2026-09-08 01:59:38 -->
